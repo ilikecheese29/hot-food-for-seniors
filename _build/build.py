@@ -164,6 +164,69 @@ def page(meta: dict, body: str) -> str:
 """
 
 
+SITE_URL = "https://warmbowl.vercel.app"
+
+# Pages search engines should list, with their importance (0.0 to 1.0).
+# A page left out here, like 404.html, stays out of the sitemap.
+SITEMAP = {
+    "index.html": "1.0",
+    "waitlist.html": "0.9",
+    "how-it-works.html": "0.8",
+    "pricing.html": "0.8",
+    "food.html": "0.8",
+    "safety.html": "0.8",
+    "faq.html": "0.8",
+    "zh.html": "0.8",
+    "about.html": "0.6",
+    "drive.html": "0.5",
+    "restaurants.html": "0.5",
+    "privacy.html": "0.3",
+}
+
+# English and Chinese versions of the same page, so search engines can
+# show the right one to each reader.
+ALTERNATES = {"index.html": "zh.html", "zh.html": "index.html"}
+LANGS = {"index.html": "en-CA", "zh.html": "zh-Hans"}
+
+
+def page_url(name: str) -> str:
+    return f"{SITE_URL}/" if name == "index.html" else f"{SITE_URL}/{name}"
+
+
+def write_sitemap() -> None:
+    from datetime import date
+
+    for src in sorted(PAGES.glob("*.html")):
+        if src.name not in SITEMAP and src.name != "404.html":
+            print(f"note: {src.name} isn't in the sitemap. Add it to SITEMAP in build.py if search engines should find it.")
+
+    rows = []
+    for name, priority in SITEMAP.items():
+        src = PAGES / name
+        if not src.exists():
+            raise SystemExit(f"sitemap lists {name}, but _build/pages/{name} doesn't exist")
+        lastmod = date.fromtimestamp(src.stat().st_mtime).isoformat()
+        links = ""
+        if name in ALTERNATES:
+            pair = [name, ALTERNATES[name]]
+            links = "".join(
+                f'\n    <xhtml:link rel="alternate" hreflang="{LANGS[p]}" href="{page_url(p)}"/>' for p in pair
+            )
+        rows.append(
+            f"  <url>\n    <loc>{page_url(name)}</loc>\n    <lastmod>{lastmod}</lastmod>\n"
+            f"    <priority>{priority}</priority>{links}\n  </url>"
+        )
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(rows) + "\n</urlset>\n"
+    )
+    (ROOT / "sitemap.xml").write_text(xml, encoding="utf-8", newline="\n")
+    robots = f"User-agent: *\nAllow: /\nDisallow: /_build/\n\nSitemap: {SITE_URL}/sitemap.xml\n"
+    (ROOT / "robots.txt").write_text(robots, encoding="utf-8", newline="\n")
+    print(f"built sitemap.xml ({len(rows)} pages) and robots.txt")
+
+
 def main() -> None:
     count = 0
     for src in sorted(PAGES.glob("*.html")):
@@ -178,6 +241,7 @@ def main() -> None:
         count += 1
         print(f"built {out.name}")
     print(f"{count} pages")
+    write_sitemap()
 
 
 if __name__ == "__main__":

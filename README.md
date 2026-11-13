@@ -41,6 +41,8 @@ Don't edit the `.html` files in the main folder directly. They get overwritten.
 
    Then open http://localhost:8420
 
+The build also writes `sitemap.xml` and `robots.txt`. When you add a page, add it to `SITEMAP` in `_build/build.py`. If the site moves to its own domain, change `SITE_URL` there and rebuild.
+
 Styles are in `assets/css/style.css`. The colours and fonts are at the top of that file.
 
 House style: no em dashes or en dashes anywhere. Write time and price ranges with "to", for example "5:00 to 6:15 pm".

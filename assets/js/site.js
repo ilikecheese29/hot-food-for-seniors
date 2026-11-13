@@ -55,7 +55,7 @@
       }
 
       var key = form.getAttribute("data-form");
-      var endpoint = (cfg.forms || {})[key];
+      var endpoint = (cfg.forms || {})[key] || form.getAttribute("action");
       var lang = form.getAttribute("data-lang") === "zh" ? "zh" : "en";
 
       if (!endpoint) {
