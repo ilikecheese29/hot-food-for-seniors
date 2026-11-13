@@ -1,0 +1,196 @@
+<!-- {"title": "Join the waitlist", "description": "Join the Warm Bowl waitlist for the spring 2027 test and summer 2027 pilot in Bayview Hill, Richmond Hill. Free to join, no payment needed.", "nav": "waitlist"} -->
+
+<section class="page-hero">
+  <div class="wrap">
+    <p class="eyebrow">Spring test and summer 2027 pilot</p>
+    <h1>Join the waitlist</h1>
+    <p class="zh-sub" lang="zh-Hans">加入候补名单。<a href="zh.html#waitlist">中文表格</a></p>
+    <p class="lede">It takes about three minutes. It's free, and it doesn't commit you to anything. We'll call you before the pilot to talk it through.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap form-layout">
+    <div>
+      <form class="form" method="post" data-form="waitlist">
+        <input type="hidden" name="form" value="Waitlist">
+        <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+
+        <fieldset>
+          <div class="fieldset-head"><legend>About you</legend></div>
+          <p class="legend-note">The person we should contact. Usually the son or daughter.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="w-name">Your name <span class="req">*</span></label>
+              <input id="w-name" name="your_name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="w-rel">You're signing up</label>
+              <select id="w-rel" name="relationship">
+                <option>For my parent</option>
+                <option>For a grandparent</option>
+                <option>For myself</option>
+                <option>For a relative or friend</option>
+                <option>As a caregiver or PSW</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="w-email">Email <span class="req">*</span></label>
+              <input id="w-email" name="email" type="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="w-phone">Phone <span class="opt">(optional)</span></label>
+              <input id="w-phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <span class="label" id="w-contact-label">Best way to reach you</span>
+            <div class="choices" role="group" aria-labelledby="w-contact-label">
+              <label class="choice"><input type="checkbox" name="contact_by" value="Phone call"> Phone call</label>
+              <label class="choice"><input type="checkbox" name="contact_by" value="Email"> Email</label>
+              <label class="choice"><input type="checkbox" name="contact_by" value="WhatsApp"> WhatsApp</label>
+              <label class="choice"><input type="checkbox" name="contact_by" value="WeChat"> WeChat</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="w-wechat">WeChat ID <span class="opt">(if you chose WeChat)</span></label>
+            <input id="w-wechat" name="wechat_id" type="text">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="fieldset-head"><legend>About them</legend></div>
+          <p class="legend-note">Just the basics for now. We collect emergency contacts and building details later, by phone.</p>
+          <div class="field-grid">
+            <div class="field">
+              <label for="w-senior">Their first name <span class="opt">(optional)</span></label>
+              <input id="w-senior" name="senior_first_name" type="text">
+            </div>
+            <div class="field">
+              <label for="w-postal">Their postal code <span class="req">*</span>
+                <span class="hint">The first three characters are enough, e.g. L4B. We start within about 3 km of Bayview Hill and use this to plan the next routes.</span></label>
+              <input id="w-postal" name="postal_code" type="text" maxlength="7" autocomplete="off" required>
+            </div>
+          </div>
+          <div class="field">
+            <span class="label" id="w-lang-label">Languages they're most comfortable in</span>
+            <div class="choices" role="group" aria-labelledby="w-lang-label">
+              <label class="choice"><input type="checkbox" name="senior_language" value="Cantonese"> Cantonese <span lang="zh-Hans">粤语</span></label>
+              <label class="choice"><input type="checkbox" name="senior_language" value="Mandarin"> Mandarin <span lang="zh-Hans">普通话</span></label>
+              <label class="choice"><input type="checkbox" name="senior_language" value="English"> English</label>
+              <label class="choice"><input type="checkbox" name="senior_language" value="Other"> Other</label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="label" id="w-now-label">How do they get dinner now? <span class="opt">Tick any</span></span>
+            <div class="choices" role="group" aria-labelledby="w-now-label">
+              <label class="choice"><input type="checkbox" name="current_meals" value="Cooks for themselves"> They cook for themselves</label>
+              <label class="choice"><input type="checkbox" name="current_meals" value="Family cooks or drops off"> Family cooks or drops off food</label>
+              <label class="choice"><input type="checkbox" name="current_meals" value="PSW or helper cooks"> A PSW or helper cooks</label>
+              <label class="choice"><input type="checkbox" name="current_meals" value="Delivery apps"> We order on delivery apps</label>
+              <label class="choice"><input type="checkbox" name="current_meals" value="Meals on Wheels"> Meals on Wheels</label>
+              <label class="choice"><input type="checkbox" name="current_meals" value="Often skips meals"> They often skip meals</label>
+            </div>
+          </div>
+          <div class="field">
+            <span class="label" id="w-diet-label">Diet needs <span class="opt">Tick any</span></span>
+            <div class="choices" role="group" aria-labelledby="w-diet-label">
+              <label class="choice"><input type="checkbox" name="diet" value="Low salt"> Low salt</label>
+              <label class="choice"><input type="checkbox" name="diet" value="Low sugar or diabetic"> Low sugar or diabetic</label>
+              <label class="choice"><input type="checkbox" name="diet" value="Soft texture"> Soft texture</label>
+              <label class="choice"><input type="checkbox" name="diet" value="Smaller portions"> Smaller portions</label>
+              <label class="choice"><input type="checkbox" name="diet" value="Vegetarian"> Vegetarian</label>
+              <label class="choice"><input type="checkbox" name="diet" value="Allergies"> Allergies (tell us below)</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="w-fav">Which restaurant or dish do they miss? <span class="opt">(optional)</span></label>
+            <input id="w-fav" name="favourite_food" type="text" placeholder="e.g. congee from the place on Highway 7">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="fieldset-head"><legend>Which plan interests you?</legend></div>
+          <p class="legend-note">You can change this later. It helps us plan the route.</p>
+          <div class="field choice-cards" role="radiogroup" aria-label="Plan">
+            <label class="choice-card"><input type="radio" name="plan" value="2 Treats"><span><strong>2 Treats</strong><small>$40 a week, Tue and Thu</small></span></label>
+            <label class="choice-card"><input type="radio" name="plan" value="3 Treats"><span><strong>3 Treats</strong><small>$60 a week, from fall 2027</small></span></label>
+            <label class="choice-card"><input type="radio" name="plan" value="Not sure"><span><strong>Not sure yet</strong><small>Let's talk</small></span></label>
+          </div>
+          <div class="field">
+            <label class="choice"><input type="checkbox" name="more_dinners_interest" value="Yes"> <span>Later on, I'd be interested in more dinners, up to every night<span class="choice-sub">Same $20 a meal</span></span></label>
+          </div>
+          <div class="field">
+            <label class="choice"><input type="checkbox" name="lunch_interest" value="Yes"> <span>Later on, I'd be interested in weekday lunches<span class="choice-sub">Same $20 a meal</span></span></label>
+          </div>
+          <div class="field">
+            <label class="choice"><input type="checkbox" name="sponsor_a_meal" value="Yes"> <span>I'd like to add Sponsor a meal (+$5 a week)<span class="choice-sub">It goes toward free dinners for seniors in need.</span></span></label>
+          </div>
+          <div class="field">
+            <label class="choice"><input type="checkbox" name="founding_deposit" value="Yes"> <span>I'd consider holding a founding spot with a $25 refundable deposit<span class="choice-sub">Nothing is charged now. We'll ask when we call.</span></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <div class="fieldset-head"><legend>Anything else?</legend></div>
+          <div class="field">
+            <label for="w-notes">What worries you most about their meals? <span class="opt">(optional)</span></label>
+            <textarea id="w-notes" name="notes" placeholder="Allergies, what's been hard, what you'd want to hear from the driver..."></textarea>
+          </div>
+          <div class="field">
+            <label for="w-heard">How did you hear about us? <span class="opt">(optional)</span></label>
+            <select id="w-heard" name="heard_from">
+              <option value="">Choose one</option>
+              <option>Friend or family</option>
+              <option>WeChat or WhatsApp group</option>
+              <option>Flyer</option>
+              <option>Community centre, church or temple</option>
+              <option>Search or social media</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <div class="consent">
+          <label class="choice"><input type="checkbox" name="consent" value="Yes" required> <span>I agree that Warm Bowl can contact me about the pilot and store these details as described in the <a href="privacy.html">privacy note</a>. <span class="req">*</span></span></label>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Join the waitlist</button>
+        <p class="form-status" role="alert" hidden></p>
+      </form>
+
+      <div class="form-success" data-success-for="waitlist" hidden>
+        <p class="eyebrow" style="color:var(--green)">You're on the list</p>
+        <h2>Thank you. We'll be in touch.</h2>
+        <p>We'll call or message you before our spring test and summer pilot to answer your questions and talk about your parent's needs.</p>
+        <div data-deposit hidden>
+          <p>Want to hold a founding spot now? The $25 deposit is fully refundable and comes off your first week.</p>
+          <p><a class="btn btn-primary" href="#">Hold my spot</a></p>
+        </div>
+        <p class="small muted">Know another family who might want this? Send them this page. Five families on one street makes a route.</p>
+      </div>
+    </div>
+
+    <aside class="aside-box">
+      <h3>What happens next</h3>
+      <ol class="timeline" style="margin-top:18px">
+        <li><h3>We call you</h3><p>A short call before the pilot to answer questions and hear what your parent likes.</p></li>
+        <li><h3>We set it up together</h3><p>Preferences, diet, emergency contacts, and the days that suit them.</p></li>
+        <li><h3>First week, half price</h3><p>Any late or cold meal refunded in full.</p></li>
+      </ol>
+      <p class="small muted">Rather talk now? Email <a href="mailto:warmbowlmeals@gmail.com">warmbowlmeals@gmail.com</a>.</p>
+    </aside>
+  </div>
+</section>
+
+<script>
+  // Preselect a plan from links like waitlist.html?plan=3-treats
+  (function () {
+    var p = new URLSearchParams(location.search).get("plan");
+    var map = { "2-treats": "2 Treats", "3-treats": "3 Treats" };
+    if (p && map[p]) {
+      var el = document.querySelector('input[name="plan"][value="' + map[p] + '"]');
+      if (el) el.checked = true;
+    }
+  })();
+</script>
