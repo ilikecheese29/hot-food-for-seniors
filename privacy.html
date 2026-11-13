@@ -71,6 +71,9 @@
         <li><strong>Emergency services</strong>, if a driver calls 911 under our protocol.</li>
       </ul>
 
+      <h2>Website analytics</h2>
+      <p>We use Vercel Web Analytics and Speed Insights to count page visits and see how fast pages load. They don't use cookies, and they don't collect your name, email or anything you type into a form.</p>
+
       <h2>How long we keep it</h2>
       <p>Waitlist details are kept until the pilot is set up, or until you ask us to remove them. Customer details are kept while you use Warm Bowl and deleted within 12 months after you stop, unless we need to keep a record for tax or legal reasons.</p>
 
@@ -129,5 +132,12 @@
 </footer>
 <script src="assets/js/config.js"></script>
 <script src="assets/js/site.js"></script>
+<!-- Vercel Web Analytics and Speed Insights. Enable both in the Vercel dashboard. They only load on Vercel, not locally. -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
