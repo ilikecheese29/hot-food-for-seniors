@@ -56,23 +56,30 @@
 
       var key = form.getAttribute("data-form");
       var endpoint = (cfg.forms || {})[key] || form.getAttribute("action");
-      var lang = form.getAttribute("data-lang") === "zh" ? "zh" : "en";
+      // data-lang: "zh" = Chinese only, "both" = English and Chinese, otherwise English.
+      var lang = form.getAttribute("data-lang") || "en";
+      function msg(en, zh) {
+        if (lang === "zh") return zh;
+        if (lang === "both") return en + " " + zh;
+        return en;
+      }
 
       if (!endpoint) {
         showStatus(
           form,
-          lang === "zh"
-            ? "表格尚未连接。请发邮件至 " + email + "，我们会尽快回复。"
-            : "This form isn't connected yet. Please email " + email + " and we'll get back to you."
+          msg(
+            "This form isn't connected yet. Please email " + email + " and we'll get back to you.",
+            "表格尚未连接。请发邮件至 " + email + "，我们会尽快回复。"
+          )
         );
         return;
       }
 
       var button = form.querySelector('button[type="submit"]');
-      var label = button ? button.textContent : "";
+      var label = button ? button.innerHTML : "";
       if (button) {
         button.disabled = true;
-        button.textContent = lang === "zh" ? "正在提交" : "Sending";
+        button.textContent = msg("Sending", "正在提交");
       }
 
       fetch(endpoint, {
@@ -94,15 +101,16 @@
         .catch(function () {
           showStatus(
             form,
-            lang === "zh"
-              ? "提交失败。请稍后再试，或发邮件至 " + email + "。"
-              : "Something went wrong sending the form. Please try again, or email " + email + "."
+            msg(
+              "Something went wrong sending the form. Please try again, or email " + email + ".",
+              "提交失败。请稍后再试，或发邮件至 " + email + "。"
+            )
           );
         })
         .finally(function () {
           if (button) {
             button.disabled = false;
-            button.textContent = label;
+            button.innerHTML = label;
           }
         });
     });

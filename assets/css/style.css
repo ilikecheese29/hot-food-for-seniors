@@ -7,7 +7,7 @@
   --paper-3: #e4d7bf;
   --ink: #1f1b16;
   --ink-2: #463f36;
-  --muted: #776c5e;
+  --muted: #625849;
   --rule: #d6c8ae;
   --red: #9b3a26;
   --red-dark: #7a2b1a;
@@ -62,8 +62,13 @@ h4 { font-size: 1.1rem; }
 p { margin: 0 0 1em; }
 p:last-child { margin-bottom: 0; }
 
-[lang^="zh"] { font-family: "Noto Serif SC", var(--serif); letter-spacing: 0.02em; }
-.sans[lang^="zh"], p[lang^="zh"] { font-family: "Noto Sans SC", var(--sans); }
+/* Chinese: plain sans-serif for reading, serif only for headings and short display lines */
+[lang^="zh"] { font-family: "Noto Sans SC", var(--sans); letter-spacing: 0.02em; }
+[lang^="zh"] h1, [lang^="zh"] h2, [lang^="zh"] h3, [lang^="zh"] .pullquote,
+h1[lang^="zh"], h2[lang^="zh"], h3[lang^="zh"], .zh-sub[lang^="zh"], .brand-zh, .dish-zh {
+  font-family: "Noto Serif SC", var(--serif);
+}
+[lang^="zh"] p, [lang^="zh"] li { line-height: 1.8; }
 
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 28px; }
 
@@ -457,7 +462,7 @@ input[type="text"], input[type="email"], input[type="tel"], input[type="number"]
   width: 100%;
   font: inherit; font-size: 1rem; color: var(--ink);
   background: #fffcf6;
-  border: 1px solid #b9ab92;
+  border: 1px solid #857660;
   border-radius: var(--radius);
   padding: 12px 13px;
   transition: border-color 0.15s, box-shadow 0.15s;
@@ -487,7 +492,7 @@ input:user-invalid, select:user-invalid, textarea:user-invalid { border-color: v
 .choice-card input { position: absolute; opacity: 0; inset: 0; }
 .choice-card span {
   display: block; height: 100%;
-  border: 1px solid #b9ab92; border-radius: var(--radius); background: #fffcf6;
+  border: 1px solid #857660; border-radius: var(--radius); background: #fffcf6;
   padding: 14px 14px 12px; font-weight: 400; cursor: pointer;
 }
 .choice-card strong { display: block; font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
@@ -551,3 +556,39 @@ input:user-invalid, select:user-invalid, textarea:user-invalid { border-color: v
 .h1-zh { font-size: clamp(2rem, 4.2vw, 3.3rem); line-height: 1.28; letter-spacing: 0.01em; }
 .band-green h4 { color: #fbf5e9; }
 table.data tbody th { white-space: nowrap; padding-right: 28px; }
+
+/* ---------- accessibility and bilingual forms ---------- */
+
+.zh-label { font-family: "Noto Sans SC", var(--sans); font-weight: 500; color: var(--ink-2); margin-left: 0.3em; letter-spacing: 0.02em; }
+legend .zh-label, h3 .zh-label { font-size: 0.85em; }
+
+/* Bigger tap targets for checkboxes and radios */
+.choice { min-height: 36px; padding: 4px 0; }
+.choice input { width: 22px; height: 22px; margin-top: 0.15em; }
+.choices { gap: 6px 20px; }
+
+/* Group questions use a real fieldset/legend for screen readers */
+fieldset.field { margin: 0 0 20px; }
+fieldset.field > legend.label { font-family: var(--sans); font-size: 0.95rem; font-weight: 600; margin-bottom: 9px; }
+
+.field .hint { margin-top: 6px; }
+
+.btn-block { width: 100%; max-width: 420px; padding-top: 1em; padding-bottom: 1em; font-size: 1.05rem; }
+@media (max-width: 620px) { .btn-block { max-width: none; } }
+
+/* Extra nav links shown only in the mobile menu */
+.site-nav .nav-extra { display: none; }
+@media (max-width: 960px) { .site-nav .nav-extra { display: block; } }
+
+/* "Work with us" cards */
+.join-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 2px solid var(--ink); }
+.join-card { padding: 28px 32px 30px 0; }
+.join-card + .join-card { padding-left: 32px; border-left: 1px solid var(--rule); }
+.join-card h3 { font-size: 1.6rem; margin-bottom: 0.2em; }
+.join-card .zh-sub { color: var(--muted); margin: 0 0 0.8em; }
+.join-card p { color: var(--ink-2); }
+@media (max-width: 760px) {
+  .join-grid { grid-template-columns: 1fr; }
+  .join-card, .join-card + .join-card { padding: 24px 0; border-left: 0; }
+  .join-card + .join-card { border-top: 1px solid var(--rule); }
+}

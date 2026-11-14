@@ -52,6 +52,10 @@ def header(active: str, lang: str) -> str:
     for key, href, label in NAV:
         current = ' aria-current="page"' if key == active else ""
         links.append(f'<a href="{href}"{current}>{label}</a>')
+    # Shown only in the mobile menu, where there's room for more links.
+    for key, href, label in (("drive", "drive.html", "Drive with us"), ("restaurants", "restaurants.html", "For restaurants")):
+        current = ' aria-current="page"' if key == active else ""
+        links.append(f'<a class="nav-extra" href="{href}"{current}>{label}</a>')
     if lang == "zh":
         links.append('<a href="index.html" lang="en">English</a>')
         cta = '<a class="btn btn-primary btn-sm" href="zh.html#waitlist" lang="zh-Hans">加入候补名单</a>'
@@ -97,11 +101,11 @@ FOOTER = f"""<footer class="site-footer">
       </ul>
     </div>
     <div>
-      <h3>Warm Bowl</h3>
+      <h3>Work with us</h3>
       <ul>
+        <li><a href="drive.html">Drive with us</a> <span lang="zh-Hans">招聘司机</span></li>
+        <li><a href="restaurants.html">For restaurants</a> <span lang="zh-Hans">餐厅合作</span></li>
         <li><a href="about.html">Our story</a></li>
-        <li><a href="drive.html">Drive with us</a></li>
-        <li><a href="restaurants.html">For restaurants</a></li>
         <li><a href="zh.html" lang="zh-Hans">中文</a></li>
         <li><a href="privacy.html">Privacy</a></li>
       </ul>
