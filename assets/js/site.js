@@ -20,17 +20,6 @@
     el.textContent = new Date().getFullYear();
   });
 
-  // Deposit link
-  document.querySelectorAll("[data-deposit]").forEach(function (block) {
-    var link = block.querySelector("a");
-    if (cfg.depositLink && link) {
-      link.href = cfg.depositLink;
-      block.hidden = false;
-    } else {
-      block.hidden = true;
-    }
-  });
-
   // Forms
   var email = cfg.contactEmail || "warmbowlmeals@gmail.com";
 

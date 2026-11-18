@@ -1,4 +1,4 @@
-// Site settings. Edit this file to connect the forms and the deposit link.
+// Site settings. Edit this file to connect the forms.
 //
 // forms: paste a form endpoint for each form. A free Formspree form works:
 //   1. Sign up at formspree.io and create a form.
@@ -6,9 +6,6 @@
 //   3. Paste it between the quotes below.
 // Until an endpoint is set, the form shows a "not connected yet" message
 // instead of pretending it sent.
-//
-// depositLink: a Stripe Payment Link for the refundable founding-family
-// deposit. Leave it empty to hide the deposit button.
 
 window.WARMBOWL_CONFIG = {
   forms: {
@@ -16,6 +13,5 @@ window.WARMBOWL_CONFIG = {
     driver: "https://formspree.io/f/xoedvkae",
     restaurant: "https://formspree.io/f/mkjrgqwz"
   },
-  depositLink: "",
   contactEmail: "warmbowlmeals@gmail.com"
 };
